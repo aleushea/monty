@@ -1,22 +1,21 @@
 #include "monty.h"
 /**
- * f_push - a fn takes two parameters: head and counter for pushing a new node
+ * f_push - add node to the stack
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
 void f_push(stack_t **head, unsigned int counter)
 {
-	int n, each_digits = 0, flag = 0;
-	/*** check if an argument represents the value to be pushed to stack ***/
+	int n, j = 0, flag = 0;
+
 	if (bus.arg)
 	{
-		/*** check if the number is negative ***/
 		if (bus.arg[0] == '-')
-			each_digits++;
-		for (; bus.arg[each_digits] != '\0'; each_digits++)
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
 		{
-			if (bus.arg[each_digits] > 57 || bus.arg[each_digits] < 48)
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
 				flag = 1; }
 		if (flag == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
